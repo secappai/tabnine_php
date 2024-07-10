@@ -164,19 +164,19 @@
   <div class="content">
     <header>SignUp Form</header>
      <!-- <form action="https://jagadeeshpj.herokuapp.com/" method="POST"> -->
-     <form id ="signupForm" action="login.html">
+     <form id ="signupForm" action="process_register.php" method= "POST">
       <div class="field">
         <span class="fa fa-user"></span>
-        <input type="email" id="email" required placeholder="Email">
+        <input type="email" id="email" name="email" required placeholder="Email">
       </div>
       <div class="field space">
         <span class="fa fa-lock"></span>
-        <input type="password" id="password" class="pass-key" required placeholder="Password">
+        <input type="password" id="password" class="pass-key" name="password" required placeholder="Password">
         <span class="show"></span>
       </div>
       <div class="field space">
         <span class="fa fa-lock"></span>
-        <input type="password" id="RePassword" class="pass-key" required placeholder="RePassword">
+        <input type="password" id="RePassword" class="pass-key" name="RePassword" required placeholder="RePassword">
         <span class="show"></span>
       </div>
       <br>
@@ -204,10 +204,6 @@
         </p>
     </div>
 </footer>
-
-
-<script src="register.js"></script>
-<script src="include.js"></script>
 
 </body>
 </html>
