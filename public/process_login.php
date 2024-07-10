@@ -23,10 +23,6 @@ try {
         exit();
     }
 
-    // Debugging code
-    echo "Email: " . $email . "<br>";
-    echo "Password: " . $password . "<br>";
-
     // Prepare and execute the SQL query
     $stmt = $db->prepare("SELECT * FROM users WHERE email = :email");
     $stmt->bindParam(':email', $email);
@@ -34,13 +30,6 @@ try {
 
     // Fetch the user from the database
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // show the user data if they exist
-    if ($row) {
-        echo "User found: ". $row['email']. "<br>";
-    } else {
-        echo "User not found.";
-    }
 
     // Check if the user exists in the database
     if ($row) {

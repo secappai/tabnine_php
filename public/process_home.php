@@ -37,9 +37,6 @@ $pp_blob = file_get_contents($pp['tmp_name']);
 // Get the email of the user from the session
 $email = $_SESSION['email'];
 
-// debug email
-echo "Debug email: ". $email. "<br>";
-
 // check if the user already exists in the info table
 $stmt = $db->prepare("SELECT * FROM info WHERE email = :email");
 $stmt->bindParam(':email', $email);

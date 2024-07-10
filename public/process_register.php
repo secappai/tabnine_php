@@ -4,8 +4,6 @@
 $db_path = 'barbie.db';
 $db = new PDO('sqlite:' . $db_path);
 
-echo"Connected successfully <br>";
-
 // Create the table users if it doesn't exist
 $db->exec("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT UNIQUE, password TEXT)");
 
@@ -24,14 +22,11 @@ function validateInput($input) {
         $password = $_POST['password'];
         $rePassword = $_POST['RePassword'];
 
-        echo "Form submitted <br>";
-
         // Sanitize the input
         $email = validateInput($email);
         $password = validateInput($password);
         $rePassword = validateInput($rePassword);
 
-        echo "Email: ". $email. "<br>";
 
         // Sanatize the email format
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -46,8 +41,6 @@ function validateInput($input) {
 
         // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        echo "Password hashed successfully<br>";
 
         // Insert the new user into the database
         $stmt = $db->prepare("INSERT INTO users (email, password) VALUES (:email, :password)");
